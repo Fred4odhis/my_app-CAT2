@@ -1,0 +1,31 @@
+﻿
+<html>
+<meta name="title" content="{{ obituary.name }}">
+<meta name="description" content="{{ obituary.content|truncatewords:20 }}">
+<meta property="og:title" content="{{ obituary.name }}">
+<meta property="og:description" content="{{ obituary.content|truncatewords:20 }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<body>
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Date of Death</th>
+        <th>Content</th>
+        <th>Author</th>
+    </tr>
+    {% for obituary in obituaries %}
+    <tr>
+        <td>{{ obituary.name }}</td>
+        <td>{{ obituary.date_of_birth }}</td>
+        <td>{{ obituary.date_of_death }}</td>
+        <td>{{ obituary.content }}</td>
+        <td>{{ obituary.author }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    </body>
+</html>
